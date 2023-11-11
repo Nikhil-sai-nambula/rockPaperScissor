@@ -1,0 +1,25 @@
+h1,
+h2 {
+  color: red;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  background-color: green;
+  color: white;
+}
+
+#playerSelection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  color: purple;
+}
