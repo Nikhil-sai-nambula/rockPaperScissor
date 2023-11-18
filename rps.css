@@ -3,19 +3,108 @@ html {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 200px 0px;
-  color: grey;
+  /* padding: 100px; */
+  background-color: #1f2833;
+
+  /* color: #0b0c10, #1f2833, #c5c6c7, #66fcf1, #45a29e; */
 }
-.mainComp {
+
+h1 {
+  color: #66fcf1;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 35px;
+  opacity: 200%;
+  margin: 10px;
+}
+
+h3 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 100;
+  font-size: 18px;
+  color: #66fcf1;
+  margin-bottom: 30px;
+}
+
+.mainComp,
+.introcomp {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+.playerComp {
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.playingComp {
+  background-color: rgba(255, 255, 255, 0.13);
+
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 10px 50px;
+  border: 3px solid #66fcf1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gamesvg {
+  height: 100px;
+  width: 100px;
+}
+
+.gamesvg:hover {
+  background-color: rgba(255, 255, 255, 0.705);
+  opacity: 1;
+  border-radius: 20px;
+  transform: perspective(10px);
+  translate: calc(10px);
+}
+
+#gamesvgmain {
+  /* height: 200px; */
+  width: 200px;
+}
+
 button {
-  background-color: lightgreen;
-  border-radius: 10%;
+  background-color: #1f2833;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  border-color: #66fcf1;
+}
+body {
+  color: white;
+}
+
+#choiceText {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+  color: #66fcf1;
+}
+
+#choices {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#playerChoice,
+#nikhilBossChoice {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-right: 40px;
 }

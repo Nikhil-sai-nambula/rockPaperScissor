@@ -6,10 +6,37 @@
 </head>
 
 <body>
-    <div class="mainComp">
-        <h2>Rock Paper Scissors</h2>
-        <Button onclick="game()">PlayRound</Button>
+    <div class="introComp">
+        <h1 id="intro-text"><u></u></h1>
+        <Button onclick="displayMain()">Start Game</Button>
     </div>
+    <div class="mainComp">
+        <h1 id="intro-text1">Let's &nbspPlay ! </h1>
+        <h3 id="info">First to Score 5 points win the game</h3>
+        <div id="choices">
+            <div id="playerChoice">
+                <img class="playerChoiceimg" />
+                <h3 id="playerChoiceScore"></h3>
+            </div>
+            <div id="BossChoice">
+                <img class="BossChoiceimg" />
+                <h3 id="BossChoiceScore"></h3>
+            </div>
+        </div>
+        <div class="playingComp">
+            <h1 id="intro-text1">Player</h1>
+            <img id="gamesvgmain" src="./svgs/american-football-player-illustration-1-svgrepo-com.svg" />
+            <div class="playerComp">
+                <img class="gamesvg" id="playerRock" onclick="getPlayerChoice('Rock'),playRound(),removeinfo()"
+                    src="./svgs/rock-svgrepo-com.svg" />
+                <img class="gamesvg" id="playerPaper" onclick="getPlayerChoice('Paper'),playRound(),removeinfo()"
+                    src="./svgs/paper-svgrepo-com (2).svg" />
+                <img class="gamesvg" id="playerScissor" onclick="getPlayerChoice('Scissors'),playRound(),removeinfo()"
+                    src="./svgs/scissors-svgrepo-com (1).svg" />
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="rps.js"></script>
 </body>
 
