@@ -1,5 +1,3 @@
-// const { doc } = require("prettier");
-
 var playerWon = 0;
 var computerWon = 0;
 
@@ -10,6 +8,7 @@ function displayMain() {
   var introComp = document.querySelector(".introComp");
   introComp.style.display = "none";
   mainComp.style.display = "flex";
+  winnerModal.style.display = "none";
 }
 
 $(document).ready(async function () {
@@ -98,36 +97,47 @@ function displayPlayerChoice() {
   playerChoiceScore.textContent = "Player Score : " + playerWon;
 }
 
+var currentStatus = document.querySelector("#currentStatus");
 function playRound() {
   let computerSelection = getComputerChoice();
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
   if (playerSelection == computerSelection) {
-    // prompt("It's a tie");
+    currentStatus.textContent = "It's a tie";
   } else if (
     (playerSelection == "rock" && computerSelection == "scissors") ||
     (playerSelection == "scissors" && computerSelection == "paper") ||
     (playerSelection == "paper" && computerSelection == "rock")
   ) {
-    // prompt('...YOU WON...'+${playerSelection}+" "+'beats'+" "+ ${computerSelection});
+    currentStatus.textContent =
+      "You Won " + playerSelection + " " + "beats" + " " + computerSelection;
     playerWon++;
   } else {
-    //prompt('..YOU LOST!'+${computerSelection}+" " +'beats'+" "+ ${playerSelection});
+    currentStatus.textContent =
+      "You Lost " + computerSelection + " beats " + playerSelection;
     computerWon++;
   }
   displayPlayerChoice();
   displayComputerChoice();
   if (playerWon == 5) {
-    alert("...Hurray YOU WON....");
-    playerWon = 0;
-    computerWon = 0;
+    winnerImg.src = "./svgs/happy-filled-face-svgrepo-com.svg";
+    winnerText.textContent = "You won";
+    playWinSound();
+    displayModal();
+    toggleBlur();
+    // playerWon = 0;
+    // computerWon = 0;
     displayPlayerChoice();
     displayComputerChoice();
     return;
   } else if (computerWon == 5) {
-    alert("Oh...YOU LOST!...");
-    playerWon = 0;
-    computerWon = 0;
+    winnerImg.src = "./svgs/sad-black-emoticon-face-svgrepo-com.svg";
+    winnerText.textContent = "You Lost!";
+    playLostSound();
+    displayModal();
+    toggleBlur();
+    // playerWon = 0;
+    // computerWon = 0;
     displayPlayerChoice();
     displayComputerChoice();
     return;
@@ -138,3 +148,43 @@ var playerChoiceimg = document.querySelector(".playerChoiceimg");
 var BossChoiceimg = document.querySelector(".BossChoiceimg");
 var playerChoiceScore = document.querySelector("#playerChoiceScore");
 var BossChoiceScore = document.querySelector("#BossChoiceScore");
+
+function playClickSound() {
+  let audio = new Audio("./audio/mixkit-cool-interface-click-tone-2568.wav");
+  audio.play();
+}
+
+function playWinSound() {
+  let audio = new Audio("./audio/smb_world_clear.wav");
+  audio.play();
+}
+
+function playLostSound() {
+  let audio = new Audio("./audio/smb_mariodie.wav");
+  audio.play();
+}
+
+var winnerModal = document.querySelector("#winnerModal");
+var winnerImg = document.querySelector("#winnerImg");
+var winnerText = document.querySelector("#winnerText");
+
+function displayModal() {
+  winnerModal.style.display = "flex";
+}
+
+function toggleBlur() {
+  var body = document.querySelector("body");
+  body.classList.add("blurry-effect");
+  mainComp.classList.add("blurry-effect");
+}
+
+function resetGame() {
+  playerWon = 0;
+  computerWon = 0;
+  displayPlayerChoice();
+  displayComputerChoice();
+  closeModal();
+}
+function closeModal() {
+  winnerModal.style.display = "none";
+}

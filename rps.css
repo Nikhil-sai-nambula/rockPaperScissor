@@ -108,3 +108,34 @@ body {
   align-items: center;
   margin-right: 40px;
 }
+
+#winnerModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 2;
+  width: 30vw;
+  height: 30vh;
+  padding: 25px 0;
+  border-radius: 20px;
+  border: 1px solid #66fcf1;
+  background-color: rgba(255, 255, 255, 0.13);
+  box-shadow: 0 0 10px rgba(255, 255, 255);
+  backdrop-filter: blur(10px);
+  background-color: #1f2833;
+}
+
+#winnerImg {
+  height: 100px;
+  width: 100px;
+}
+
+#restart {
+  margin-top: 0px;
+}
+
+.blurry-effect {
+  backdrop-filter: blur(90px);
+}
